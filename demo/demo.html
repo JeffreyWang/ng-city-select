@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../dist/css/ng-city-select.css">
+    <title>ng-city-select demo</title>
+</head>
+<body ng-controller="mainCtrl">
+
+    <div style="width: 600px;">
+        <ng-city-select city-list="cityList" selected="selected"></ng-city-select>
+    </div>
+
+    <div>
+        选择的城市:
+    </div>
+    <ul>
+        <li ng-repeat="city in selected track by city.id">{{city.name}}</li>
+    </ul>
+
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../dist/ng-city-select.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>

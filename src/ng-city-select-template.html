@@ -1,0 +1,29 @@
+<div class="ng-city-select-container">
+    <a href="" class="select-box" ng-class="{'in-select-mode':isInSelecMode}"
+       ng-click="toggleSelect()">
+        <span ng-show="selected.length === 0 || multiSelectMode"
+              ng-bind="placeHolder || defaultPlaceHolder"></span>
+        <span ng-show="selected.length !== 0 && !multiSelectMode"
+              ng-bind="selected[0].name"></span>
+        <i ng-show="!isInSelecMode" class="arrow-down-icon"></i>
+        <i ng-show="isInSelecMode" class="arrow-up-icon"></i>
+    </a>
+    <ul class="select-list" ng-show="isInSelecMode">
+        <li ng-if="multiSelectMode" class="multi-select-operation">
+            <label for="all-cities">全选</label>
+            <input type="checkbox" id="all-cities"
+                   ng-click="selectAllCities($event)"
+                   ng-checked="selectAllFlag"/>
+            <button ng-click="confirmSelection()">确定</button>
+        </li>
+        <li ng-repeat="cateObj in ::cityList track by cateObj.category">
+            <div ng-bind="cateObj.category"></div>
+            <ul class="city-list">
+                <li ng-repeat="city in cateObj.cities track by city.id"
+                    ng-class="{'city-selected':isCitySelected(city)}">
+                    <a href="" ng-bind="city.name" ng-click="addToSelected(city)"></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

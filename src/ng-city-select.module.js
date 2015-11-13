@@ -1,0 +1,1 @@
+ng.module('ng-city-select', []);

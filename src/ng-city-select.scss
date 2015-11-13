@@ -1,0 +1,92 @@
+@mixin iconArrow($url) {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+  background: url($url);
+}
+
+
+.ng-city-select-container {
+  position: relative;
+  .select-box {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;;
+    border: 1px solid #e3e3e3;
+    padding: 0 9px;
+    background: #fff;
+    z-index: 101;
+    min-width: 200px;
+
+    .arrow-down-icon{
+      @include iconArrow("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAApUlEQVQ4T6WS0Q3DIAxEDzFIVuoGDXiAdpTmH1vpZtnEFahUKCGECn+iu/OzscFgmUE/xgNCCDdr7eScW/6hYeanqm5GRDQaVXUlItcTIiIrgHvUxoAXgEdvSGkGsKQdlI8tkp357b2ff0u8CqmZ0wjlzGchZ+ZDQG2cJDJm/jZK2GXT6h3sOmb9wVwlyOoW9iVBFjBzwiWi+O/VGj/lnstraYYJPpokXnhcDiLLAAAAAElFTkSuQmCC");
+    }
+
+    .arrow-up-icon{
+      @include iconArrow("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAArklEQVQ4T7WT0Q2CMBRFe98CuomO4AhuYF5YgFH0vy2M4giyCS7ANTXBYOUhSUP/z+lpXwtXuFDIu20FIYRaRKiqN6vULIgxts65SwJJtlVV6ZxkVjCFR8iS/AiynbskAHCwSr4EOSwipwQOw3C3JB/BHKyqfRI0TbO3JG/BEjzegSXBGnhJghBCD2BHsktnHrOtuU9LSD7hvT8DOIrI9R+cldQkH9s+5TUfrbjgBUXujHLFDmwaAAAAAElFTkSuQmCC");
+    }
+  }
+
+  .in-select-mode {
+    border-bottom: 0;
+  }
+
+  .select-list {
+    list-style: none;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    border: 1px solid #e3e3e3;
+    background: #fff;
+    z-index: 100;
+    min-width: 500px;
+    min-height: 400px;
+    height: 100%;
+    padding-left: 15px;
+    margin: 0;
+    overflow: auto;
+
+    .multi-select-operation {
+      button{
+        float: right;
+        height: 30px;
+        width: 45px;
+        margin-right: 20px;
+      }
+
+      #all-cities{
+        vertical-align: 2px;
+      }
+    }
+
+    > li {
+      margin: 10px 0;
+    }
+
+    .city-list {
+      list-style: none;
+      display: inline-block;
+
+      > li {
+        display: inline-block;
+        min-width: 65px;
+        text-align: center;
+        padding: 3px 3px;
+        margin: 3px 3px;
+
+        a {
+          text-decoration: none;
+        }
+      }
+
+      .city-selected {
+        background: lightblue;
+      }
+    }
+  }
+}
